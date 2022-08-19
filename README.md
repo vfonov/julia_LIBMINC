@@ -14,6 +14,8 @@ To build binaries and upload them:
 
  - Set environment variable `GITHUB_TOKEN`  to the token
 
+ - (Optional) `export JULIA_SSH_NO_VERIFY_HOSTS=github.com`
+
  - Run
 
 ```
