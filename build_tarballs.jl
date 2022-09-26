@@ -1,7 +1,7 @@
 using BinaryBuilder, Pkg
 
 name = "LIBMINC"
-version = v"2.4.7"
+version = v"2.4.9"
 sources = [
     #ArchiveSource("https://github.com/BIC-MNI/libminc/archive/refs/heads/develop.tar.gz", "cad1b1797b83906f5a042648d20615bd077b01d3e6c4ed885ea37fe7e9a9c8b9"),
     #DirectorySource("/home/vfonov/src/libminc")
@@ -14,9 +14,9 @@ cd ${WORKSPACE}/srcdir/libminc
 mkdir build
 cd build
 cmake .. \
-    -DCMAKE_INSTALL_PREFIX=$prefix \
+    -DCMAKE_INSTALL_PREFIX=${prefix} \
     -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TARGET_TOOLCHAIN} \
-    -DCMAKE_BUILD_TYPE=Debug \
+    -DCMAKE_BUILD_TYPE=Release \
     -DLIBMINC_BUILD_SHARED_LIBS:BOOL=ON \
     -DLIBMINC_MINC1_SUPPORT:BOOL=ON \
     -DBUILD_TESTING:BOOL=OFF \
@@ -30,9 +30,9 @@ cd ../../minc2-simple
 mkdir build
 cd build
 cmake .. \
-    -DCMAKE_INSTALL_PREFIX=$prefix \
+    -DCMAKE_INSTALL_PREFIX=${prefix} \
     -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TARGET_TOOLCHAIN} \
-    -DCMAKE_BUILD_TYPE=Debug \
+    -DCMAKE_BUILD_TYPE=Release \
     -DBUILD_EXAMPLES:BOOL=OFF \
     -DBUILD_TESTING:BOOL=OFF \
     -DLIBMINC_DIR:PATH=$prefix/lib/cmake
@@ -59,7 +59,7 @@ products = [
 
 dependencies = [
     Dependency("HDF5_jll",v"1.12.1+0"),
-    Dependency("NetCDF_jll"),
+    Dependency("NetCDF_jll",v"v400.702.402") # ,v"v400.802.103+0",
 ]
 
 build_tarballs(ARGS, name, version, sources, script, platforms, products, dependencies)
