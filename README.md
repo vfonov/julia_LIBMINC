@@ -16,6 +16,8 @@ To build binaries and upload them:
  - Set environment variable `GITHUB_TOKEN`  to the token
 
  - Run, will build the new version and upload it to the github
+ - (Optional) `export JULIA_SSH_NO_VERIFY_HOSTS=github.com`
+
 
 ```
 julia build_tarballs.jl x86_64-linux-gnu  --deploy=vfonov/LIBMINC_jll.jl

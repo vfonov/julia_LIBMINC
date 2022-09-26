@@ -58,8 +58,8 @@ products = [
 ]
 
 dependencies = [
-    Dependency("HDF5_jll",v"1.12.1+0"),
-    Dependency("NetCDF_jll",v"v400.702.402") # ,v"v400.802.103+0",
+    Dependency("HDF5_jll",  compat="1.12.2"),
+    Dependency("NetCDF_jll",v"v400.902.5+1"),
 ]
 
 build_tarballs(ARGS, name, version, sources, script, platforms, products, dependencies)
