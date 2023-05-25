@@ -22,3 +22,9 @@ To build binaries and upload them:
 ```
 julia --project=. build_tarballs.jl x86_64-linux-gnu  --deploy=vfonov/LIBMINC_jll.jl
 ```
+
+Check the contents of `~/.gitconfig` to make sure there are **NO** rules like
+```
+[url "ssh://git@github.com/"]
+         pushInsteadOf = https://github.com/
+```
