@@ -20,5 +20,5 @@ To build binaries and upload them:
 
 
 ```
-julia build_tarballs.jl x86_64-linux-gnu  --deploy=vfonov/LIBMINC_jll.jl
+julia --project=. build_tarballs.jl x86_64-linux-gnu  --deploy=vfonov/LIBMINC_jll.jl
 ```

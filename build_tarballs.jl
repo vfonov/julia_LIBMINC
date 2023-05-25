@@ -1,7 +1,7 @@
 using BinaryBuilder, Pkg
 
 name = "LIBMINC"
-version = v"2.4.9"
+version = v"2.4.11"
 sources = [
     #ArchiveSource("https://github.com/BIC-MNI/libminc/archive/refs/heads/develop.tar.gz", "cad1b1797b83906f5a042648d20615bd077b01d3e6c4ed885ea37fe7e9a9c8b9"),
     #DirectorySource("/home/vfonov/src/libminc")
@@ -59,7 +59,7 @@ products = [
 
 dependencies = [
     Dependency("HDF5_jll",  compat="1.12.2"),
-    Dependency("NetCDF_jll",v"v400.902.5+1"),
+    Dependency("NetCDF_jll",compat="400.902.5"),
 ]
 
 build_tarballs(ARGS, name, version, sources, script, platforms, products, dependencies)
