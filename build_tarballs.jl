@@ -1,7 +1,7 @@
 using BinaryBuilder, Pkg
 
 name = "LIBMINC"
-version = v"2.4.11"
+version = v"2.4.12"
 sources = [
     #ArchiveSource("https://github.com/BIC-MNI/libminc/archive/refs/heads/develop.tar.gz", "cad1b1797b83906f5a042648d20615bd077b01d3e6c4ed885ea37fe7e9a9c8b9"),
     #DirectorySource("/home/vfonov/src/libminc")
@@ -58,8 +58,10 @@ products = [
 ]
 
 dependencies = [
-    Dependency(PackageSpec(;name="HDF5_jll", uuid="0234f1f7-429e-5d53-9886-15a909be8d59"),v"1.12.2+2",compat="1.12.2"),
-    Dependency(PackageSpec(;name="NetCDF_jll",uuid="7243133f-43d8-5620-bbf4-c2c921802cf3"),v"400.902.5+1",compat="400.902.5"), # 
+    Dependency(PackageSpec(;name="HDF5_jll", uuid="0234f1f7-429e-5d53-9886-15a909be8d59"),v"1.12.2+2",compat="~1.12.2"),
+    Dependency(PackageSpec(;name="NetCDF_jll",uuid="7243133f-43d8-5620-bbf4-c2c921802cf3"),v"400.902.5+1",compat="~400.902.5"), # 
+    # Dependency("HDF5_jll"),
+    # Dependency("NetCDF_jll"), # 
 ]
 
 build_tarballs(ARGS, name, version, sources, script, platforms, products, dependencies)
