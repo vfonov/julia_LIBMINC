@@ -49,7 +49,11 @@ platforms = [
     Platform("x86_64", "Linux"; libc="glibc"),
 ]
 
-#platforms = expand_cxxstring_abis(platforms)
+# should i do this?
+platforms = expand_cxxstring_abis(platforms)
+
+platforms = expand_gfortran_versions(platforms)
+
 
 products = [
     LibraryProduct("libminc2", :libminc2),
