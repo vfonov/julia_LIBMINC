@@ -1,7 +1,7 @@
 using BinaryBuilder, Pkg
 
 name = "LIBMINC"
-version = v"2.4.13"
+version = v"2.4.06"
 
 sources = [
     #ArchiveSource("https://github.com/BIC-MNI/libminc/archive/refs/tags/release-2.4.06.tar.gz", "cd5c6da9cd98be225a4bd3b8d712bd5292fc24f434cae732fa37af866c2db5b3"),
