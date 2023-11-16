@@ -50,9 +50,8 @@ platforms = [
 ]
 
 # should i do this?
-platforms = expand_cxxstring_abis(platforms)
-
-platforms = expand_gfortran_versions(platforms)
+#platforms = expand_cxxstring_abis(platforms)
+#platforms = expand_gfortran_versions(platforms)
 
 
 products = [
