@@ -1,12 +1,13 @@
 using BinaryBuilder, Pkg
+using Base.BinaryPlatforms
 
-name = "LIBMINC"
-version = v"2.4.06"
+name = "libminc"
+version = v"2.4.07"
 
 sources = [
     #ArchiveSource("https://github.com/BIC-MNI/libminc/archive/refs/tags/release-2.4.06.tar.gz", "cd5c6da9cd98be225a4bd3b8d712bd5292fc24f434cae732fa37af866c2db5b3"),
-    GitSource("git@github.com:BIC-MNI/libminc.git","15d994def83274b715711afffa73268167ec2cc6") # release-2.4.06
-    GitSource("git@github.com:NIST-MNI/minc2-simple.git","e7203f04941faf45cd7cea9149e7b196672fb117")
+    GitSource("git@github.com:BIC-MNI/libminc.git","0e8ab9e6198c051547b0fcb592a44661f54f2b3d") # develop branch
+    GitSource("git@github.com:NIST-MNI/minc2-simple.git","eb7e8c4c5ff0316b76455757435281a925fb44f1") # develop branch
 ]
 
 script = raw"""
@@ -46,6 +47,7 @@ install_license ${WORKSPACE}/srcdir/libminc/COPYING
 #platforms = supported_platforms()
 # right now only linux on x86_64 is tested
 platforms = [
+
     Platform("x86_64", "Linux"; libc="glibc"),
 ]
 
@@ -60,8 +62,8 @@ products = [
 ]
 
 dependencies = [
-   Dependency("HDF5_jll";  compat="~1.12.2"), # should be compatible with NetCDF
-   Dependency("NetCDF_jll";compat="~400.902.5"), 
+   Dependency("HDF5_jll";  compat="~1.14.6"), # should be compatible with NetCDF
+   Dependency("NetCDF_jll";compat="~401.900.300"), 
 ]
 
 build_tarballs(ARGS, name, version, sources, script, platforms, products, dependencies; 
