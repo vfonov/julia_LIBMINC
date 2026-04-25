@@ -47,13 +47,13 @@ install_license ${WORKSPACE}/srcdir/libminc/COPYING
 #platforms = supported_platforms()
 # right now only linux on x86_64 is tested
 platforms = [
-
-    Platform("x86_64", "Linux"; libc="glibc"),
+    Platform("x86_64", "Linux"; libc="glibc", libgfortran_version="5.0.0", mpi="mpitrampoline"),
 ]
 
 # should i do this?
 #platforms = expand_cxxstring_abis(platforms)
 #platforms = expand_gfortran_versions(platforms)
+#platforms, platform_dependencies = MPI.augment_platforms(platforms)
 
 
 products = [
@@ -66,5 +66,9 @@ dependencies = [
    Dependency("NetCDF_jll";compat="~401.900.300"), 
 ]
 
+#append!(dependencies, platform_dependencies)
+
+
 build_tarballs(ARGS, name, version, sources, script, platforms, products, dependencies; 
-    julia_compat="1.6", preferred_gcc_version=v"5")
+    julia_compat="1.7" #, preferred_gcc_version=v"5"
+  )
